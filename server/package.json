@@ -1,0 +1,19 @@
+{
+  "name": "korean-call-ai",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "...",
+    "body-parser": "...",
+    "dotenv": "...",
+    "express": "...",
+    "form-data": "...",
+    "googleapis": "...",
+    "openai": "...",
+    "twilio": "...",
+    "@google-cloud/text-to-speech": "..."
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
