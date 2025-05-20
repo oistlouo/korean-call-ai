@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "axios": "...",
-    "body-parser": "...",
-    "dotenv": "...",
-    "express": "...",
-    "form-data": "...",
-    "googleapis": "...",
-    "openai": "...",
-    "twilio": "...",
-    "@google-cloud/text-to-speech": "..."
+    "@google-cloud/text-to-speech": "file:...",
+    "axios": "file:...",
+    "body-parser": "file:...",
+    "dotenv": "file:...",
+    "express": "file:...",
+    "form-data": "file:...",
+    "googleapis": "file:...",
+    "openai": "file:...",
+    "twilio": "file:..."
   },
   "scripts": {
     "start": "node index.js"
