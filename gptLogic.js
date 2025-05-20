@@ -1,12 +1,10 @@
-const { Configuration, OpenAIApi } = require('openai');
+const OpenAI = require('openai');
 require('dotenv').config();
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
-// 시스템 프롬프트는 유지 (친절한 예약 안내 역할)
 const SYSTEM_PROMPT = `
 너는 병원 예약을 도와주는 AI 전화 상담사야.
 사용자가 예약 시간이나 증상을 말하면,
@@ -16,16 +14,15 @@ const SYSTEM_PROMPT = `
 
 exports.generateResponse = async (userText) => {
   try {
-    // GPT에게 텍스트 응답 생성만 요청
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: 'gpt-4',
       messages: [
         { role: 'system', content: SYSTEM_PROMPT },
-        { role: 'user', content: userText }
+        { role: 'user', content: userText },
       ],
     });
 
-    return completion.data.choices[0].message.content.trim();
+    return completion.choices[0].message.content.trim();
   } catch (error) {
     console.error('❌ GPT 오류:', error.response?.data || error.message);
     return '죄송합니다. 다시 한 번 말씀해주시겠어요?';
